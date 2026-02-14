@@ -24,3 +24,52 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes floatSlow {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(12px, -18px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes floatSlower {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-16px, 14px) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.45;
+  will-change: transform;
+}
+
+.bg-blob-1 { animation: floatSlow 9s ease-in-out infinite; }
+.bg-blob-2 { animation: floatSlower 12s ease-in-out infinite; }
+.bg-blob-3 { animation: floatSlow 14s ease-in-out infinite; }
+
+@keyframes floatA {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(18px,-22px,0) scale(1.06); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+@keyframes floatB {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(-22px,16px,0) scale(1.08); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.35;
+  will-change: transform;
+}
+
+.bg-blob-a { animation: floatA 10s ease-in-out infinite; }
+.bg-blob-b { animation: floatB 14s ease-in-out infinite; }
+.bg-blob-c { animation: floatA 18s ease-in-out infinite; }
+

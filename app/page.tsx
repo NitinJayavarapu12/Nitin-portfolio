@@ -1,3 +1,7 @@
+import Reveal from "./components/Reveal";
+"use client";
+import { motion } from "framer-motion";
+
 const projects = [
   {
     num: "01",
@@ -67,7 +71,11 @@ function ProjectBlock({
   links,
 }: (typeof projects)[number]) {
   return (
-    <article className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+    <motion.article
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 260, damping: 18 }}
+      className="group rounded-3xl border border-slate-200 bg-white/75 backdrop-blur p-6 shadow-sm hover:shadow-md"
+    >
       <div className="flex items-start justify-between gap-6">
         <div className="min-w-0">
           <div className="text-sm font-semibold text-slate-500">{num}</div>
@@ -113,14 +121,26 @@ function ProjectBlock({
           <div className="h-16 w-16 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white shadow-sm" />
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="bg-blob bg-blob-a left-[-140px] top-[-140px] h-[520px] w-[520px] bg-slate-200" />
+        <div className="bg-blob bg-blob-b right-[-160px] top-[40px] h-[560px] w-[560px] bg-indigo-200" />
+        <div className="bg-blob bg-blob-c left-[18%] bottom-[-220px] h-[640px] w-[640px] bg-blue-200" />
+      </div>
+
       {/* soft technical background */}
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="bg-blob bg-blob-1 left-[-120px] top-[-120px] h-[380px] w-[380px] bg-slate-200" />
+        <div className="bg-blob bg-blob-2 right-[-140px] top-[60px] h-[420px] w-[420px] bg-indigo-200" />
+        <div className="bg-blob bg-blob-3 left-[20%] bottom-[-160px] h-[460px] w-[460px] bg-blue-200" />
+      </div>
+
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute left-[-10%] top-[-10%] h-[420px] w-[420px] rounded-full bg-slate-100 blur-3xl" />
         <div className="absolute right-[-10%] top-[10%] h-[380px] w-[380px] rounded-full bg-slate-100 blur-3xl" />
@@ -129,7 +149,7 @@ export default function Home() {
       <div className="mx-auto max-w-5xl px-6 py-10">
         {/* Nav (matches reference style: clean + few links) */}
         <header className="flex items-center justify-between">
-          <div className="font-semibold tracking-tight">Nithu</div>
+          <div className="font-semibold tracking-tight">Nitin Jayavarapu</div>
           <nav className="flex items-center gap-4 text-sm">
             <a className="text-slate-700 hover:underline" href="#work">
               My Work
@@ -144,10 +164,11 @@ export default function Home() {
         </header>
 
         {/* Hero (Hello + big name line) */}
+        <Reveal>
         <section className="mt-16">
           <div className="text-lg text-slate-600">Hello,</div>
           <h1 className="mt-2 text-5xl font-semibold tracking-tight md:text-6xl">
-            Nithu here!
+            Nitin here!
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
@@ -189,12 +210,13 @@ export default function Home() {
             </a>
           </div>
         </section>
+        </Reveal>
 
         {/* Work */}
+        <Reveal>
         <section id="work" className="mt-16">
           <div className="flex items-end justify-between">
             <h2 className="text-2xl font-semibold tracking-tight">My Work</h2>
-            <p className="text-sm text-slate-500">3 projects. Systems over fluff.</p>
           </div>
 
           <div className="mt-6 space-y-6">
@@ -203,8 +225,10 @@ export default function Home() {
             ))}
           </div>
         </section>
+        </Reveal>
 
         {/* Contact */}
+        <Reveal>
         <section id="contact" className="mt-16 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-2xl font-semibold tracking-tight">Get in touch</h2>
           <p className="mt-3 text-slate-600">
@@ -220,7 +244,7 @@ export default function Home() {
             </a>
             <a
               className="rounded-2xl border border-slate-200 bg-white px-5 py-2.5 shadow-sm hover:bg-slate-50"
-              href="https://www.linkedin.com/in/<your-handle>/"
+              href="https://www.linkedin.com/in/nitinjayavarapu"
               target="_blank"
               rel="noreferrer"
             >
@@ -228,8 +252,8 @@ export default function Home() {
             </a>
           </div>
 
-          <p className="mt-8 text-xs text-slate-500">Last updated Feb 2026</p>
         </section>
+        </Reveal>
       </div>
     </main>
   );
