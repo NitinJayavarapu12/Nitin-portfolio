@@ -1,5 +1,6 @@
-import Reveal from "./components/Reveal";
 "use client";
+
+import Reveal from "./components/Reveal";
 import { motion } from "framer-motion";
 
 const projects = [
