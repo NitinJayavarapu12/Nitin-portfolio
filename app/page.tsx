@@ -1,157 +1,205 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Reveal from "./components/Reveal";
 
 const projects = [
   {
     id: "01",
     title: "Production LLM RAG Service",
-    desc: "Built a retrieval-augmented generation API over structured documents. Improved Precision@k by ~25% and reduced malformed outputs.",
+    desc:
+      "RAG-based question answering API over documents: chunk → embed → retrieve → answer. Tuned retrieval + prompts to improve relevance and reduce low-quality outputs.",
     tech: ["Python", "FastAPI", "FAISS", "Transformers", "Docker"],
   },
   {
     id: "02",
     title: "Location-Aware Semantic Recommendation System",
-    desc: "Embedding-based recommendation engine combining semantic similarity and geo-distance ranking. Reduced lookup latency by ~50%.",
+    desc:
+      "Context-aware place recommender that ranks nearby results using semantic similarity + geo-distance for hybrid ranking. Designed for scalable API deployment.",
     tech: ["Python", "Embeddings", "FastAPI", "SQLite", "Docker"],
   },
   {
     id: "03",
     title: "Real-Time Video Analytics Platform",
-    desc: "YOLO-based inference API with structured outputs and monitoring-friendly schema deployed via Docker.",
+    desc:
+      "YOLO-based inference API with structured JSON outputs and monitoring-friendly schema. Containerized for reproducible runs and deployment.",
     tech: ["Python", "YOLOv8", "FastAPI", "Docker"],
   },
 ];
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <>
+      <div className="bg" />
+      <div className="noise" />
 
-      {/* NAVBAR */}
-      <nav className="fixed w-full bg-white/80 backdrop-blur border-b z-50">
-        <div className="max-w-5xl mx-auto flex justify-between items-center px-6 py-4">
-
-          <div className="font-semibold text-lg">
+      <header className="nav">
+        <div className="container navInner">
+          <a className="brand" href="#">
             Nitin Jayavarapu
-          </div>
+          </a>
 
-          <div className="flex gap-8 text-sm text-slate-600">
-            <a href="#work" className="hover:text-black">My Work</a>
-            <a href="/resume.pdf" target="_blank" className="hover:text-black">Resume</a>
-            <a href="#contact" className="hover:text-black">Contact</a>
-          </div>
+          <nav className="navLinks" aria-label="Primary">
+            <a href="#work">My Work</a>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer">
+              Resume
+            </a>
+            <a href="#contact">Contact</a>
+          </nav>
 
+          <a className="cta" href="mailto:nitinjayavarapu12@gmail.com">
+            Get in touch →
+          </a>
         </div>
-      </nav>
+      </header>
 
+      <main>
+        {/* HERO */}
+        <section className="section">
+          <div className="container">
+            <div className="heroGrid">
+              <div>
+                <Reveal>
+                  <div className="badge">
+                    <span className="pulse" />
+                    Open to opportunities
+                  </div>
+                </Reveal>
 
-      {/* HERO */}
-      <section className="max-w-5xl mx-auto px-6 pt-32 pb-24">
+                <Reveal delay={80}>
+                  <h1 className="h1">
+                    AI / ML <em>Engineer</em>
+                    <br />
+                    building production systems.
+                  </h1>
+                </Reveal>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-semibold mb-6"
-        >
-          AI / ML Engineer
-        </motion.h1>
+                <Reveal delay={160}>
+                  <p className="sub">
+                    I build ML systems that work under real constraints — noisy
+                    inputs, latency limits, and changing data. I care about
+                    clean APIs, strong evaluation, and measurable impact.
+                  </p>
+                </Reveal>
 
-        <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
-          I build production-grade ML systems including recommendation engines,
-          real-time inference pipelines, and LLM APIs. My focus is reliability,
-          performance, and measurable real-world impact.
-        </p>
-
-      </section>
-
-
-      {/* PROJECTS */}
-      <section id="work" className="max-w-5xl mx-auto px-6 pb-24">
-
-        <h2 className="text-2xl font-semibold mb-10">
-          Selected Work
-        </h2>
-
-        <div className="space-y-6">
-
-          {projects.map((project) => (
-
-            <motion.div
-              key={project.id}
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 260 }}
-              className="border rounded-xl p-6 hover:shadow-lg transition"
-            >
-
-              <div className="text-sm text-slate-400 mb-2">
-                {project.id}
+                <Reveal delay={240}>
+                  <div className="heroBtns">
+                    <a className="btn" href="#work">
+                      View projects →
+                    </a>
+                    <a
+                      className="btn"
+                      href="https://github.com/nitinjayavarapu12"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      GitHub ↗
+                    </a>
+                    <a
+                      className="btn"
+                      href="https://www.linkedin.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      LinkedIn ↗
+                    </a>
+                  </div>
+                </Reveal>
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">
-                {project.title}
-              </h3>
+              <Reveal delay={120}>
+                <aside className="heroCard">
+                  <div className="heroMeta">
+                    <div>📍 Pensacola, FL</div>
+                    <div>🎓 M.S. Data Science (Business Analytics)</div>
+                    <div>🛠️ Focus: RAG, CV, Recommenders, MLOps</div>
+                    <div>✅ 2+ years production ML experience</div>
+                  </div>
 
-              <p className="text-slate-600 mb-4 leading-relaxed">
-                {project.desc}
-              </p>
+                  <div className="heroBtns">
+                    <a className="btn" href="mailto:nitinjayavarapu12@gmail.com">
+                      Email
+                    </a>
+                    <a className="btn" href="/resume.pdf" target="_blank" rel="noreferrer">
+                      Resume
+                    </a>
+                  </div>
+                </aside>
+              </Reveal>
+            </div>
+          </div>
+        </section>
 
-              <div className="flex gap-2 flex-wrap">
+        {/* WORK */}
+        <section id="work" className="section">
+          <div className="container">
+            <Reveal>
+              <div className="kicker">Selected Work</div>
+              <h2 className="h2">Projects that show real engineering</h2>
+            </Reveal>
 
-                {project.tech.map((tech) => (
+            <div className="grid">
+              {projects.map((p, idx) => (
+                <Reveal key={p.id} delay={80 + idx * 80}>
+                  <article className="card">
+                    <div className="cardNum">{p.id}</div>
+                    <div className="cardTitle">{p.title}</div>
+                    <p className="cardDesc">{p.desc}</p>
+                    <div className="pills">
+                      {p.tech.map((t) => (
+                        <span className="pill" key={t}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                  <span
-                    key={tech}
-                    className="text-xs border px-3 py-1 rounded-full text-slate-600"
+        {/* CONTACT */}
+        <section id="contact" className="section">
+          <div className="container">
+            <Reveal>
+              <div className="kicker">Contact</div>
+              <h2 className="h2">Let’s talk</h2>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="contactBox">
+                <p className="sub" style={{ marginTop: 0 }}>
+                  If you’re hiring for an AI/ML role (or want to collaborate), email is best.
+                </p>
+
+                <div className="contactRow">
+                  <a className="link" href="mailto:nitinjayavarapu12@gmail.com">
+                    Email
+                  </a>
+                  <a
+                    className="link"
+                    href="https://github.com/nitinjayavarapu12"
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    {tech}
-                  </span>
-
-                ))}
-
+                    GitHub
+                  </a>
+                  <a
+                    className="link"
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
               </div>
+            </Reveal>
 
-            </motion.div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-
-      {/* CONTACT */}
-      <section id="contact" className="bg-black text-white py-24">
-
-        <div className="max-w-5xl mx-auto px-6">
-
-          <h2 className="text-3xl font-semibold mb-4">
-            Get in touch
-          </h2>
-
-          <p className="text-slate-400 mb-6">
-            Open to AI / ML engineering roles and collaborations.
-          </p>
-
-          <div className="flex gap-6">
-
-            <a href="mailto:nitinjayavarapu12@gmail.com" className="underline">
-              Email
-            </a>
-
-            <a href="https://github.com/nitinjayavarapu12" target="_blank" className="underline">
-              GitHub
-            </a>
-
-            <a href="https://linkedin.com" target="_blank" className="underline">
-              LinkedIn
-            </a>
-
+            <div className="footer">
+              © {new Date().getFullYear()} Nitin Jayavarapu — AI/ML Engineer
+            </div>
           </div>
-
-        </div>
-
-      </section>
-
-    </main>
+        </section>
+      </main>
+    </>
   );
 }
