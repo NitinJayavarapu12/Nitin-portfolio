@@ -1,28 +1,9 @@
+import Link from "next/link";
+import { projects } from "@/app/lib/projects";
 import Reveal from "./components/Reveal";
 
-const projects = [
-  {
-    id: "01",
-    title: "Production LLM RAG Service",
-    desc:
-      "RAG-based question answering API over documents: chunk → embed → retrieve → answer. Tuned retrieval + prompts to improve relevance and reduce low-quality outputs.",
-    tech: ["Python", "FastAPI", "FAISS", "Transformers", "Docker"],
-  },
-  {
-    id: "02",
-    title: "Location-Aware Semantic Recommendation System",
-    desc:
-      "Context-aware place recommender that ranks nearby results using semantic similarity + geo-distance for hybrid ranking. Designed for scalable API deployment.",
-    tech: ["Python", "Embeddings", "FastAPI", "SQLite", "Docker"],
-  },
-  {
-    id: "03",
-    title: "Real-Time Video Analytics Platform",
-    desc:
-      "YOLO-based inference API with structured JSON outputs and monitoring-friendly schema. Containerized for reproducible runs and deployment.",
-    tech: ["Python", "YOLOv8", "FastAPI", "Docker"],
-  },
-];
+
+
 
 export default function Page() {
   return (
@@ -138,18 +119,21 @@ export default function Page() {
             <div className="grid">
               {projects.map((p, idx) => (
                 <Reveal key={p.id} delay={80 + idx * 80}>
-                  <article className="card">
-                    <div className="cardNum">{p.id}</div>
-                    <div className="cardTitle">{p.title}</div>
-                    <p className="cardDesc">{p.desc}</p>
-                    <div className="pills">
-                      {p.tech.map((t) => (
-                        <span className="pill" key={t}>
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </article>
+                  <Link href={`/case-study/${p.slug}`} style={{ textDecoration: "none"}}>
+                    <article className="card">
+                      <div className="cardNum">{p.id}</div>
+                      <div className="cardTitle">{p.title}</div>
+                      <p className="cardDesc">{p.oneLiner}</p>
+
+                      <div className="pills">
+                        {p.stack.map((t) => (
+                          <span className="pill" key={t}>
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </article>
+                  </Link>
                 </Reveal>
               ))}
             </div>
