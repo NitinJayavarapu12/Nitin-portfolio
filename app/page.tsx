@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projects } from "@/app/lib/projects";
+import { projects } from "./lib/projects";
 import Reveal from "./components/Reveal";
 
 
@@ -90,16 +90,17 @@ export default function Page() {
 
               <Reveal delay={120}>
                 <aside className="heroCard">
-                  <div style={{ display: "flex", justifyContent: "center", marginBottom: 18 }}>
+                  <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
                     <img
                       src="/profile.jpg"
                       alt="Nitin Jayavarapu"
                       style={{
-                        width: 160,
-                        height: 160,
-                        borderRadius: "50%",
+                        width: 180,
+                        height: 240,
+                        borderRadius: "12px",
                         objectFit: "cover",
-                        border: "3px solid rgba(255,255,255,0.2)",
+                        border: "3px solid rgba(255,255,255,0.15)",
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.4)",
                       }}
                     />
                   </div>

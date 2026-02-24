@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getProject, projects } from "@/app/lib/projects";
+import { getProject, projects } from "../../lib/projects";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
