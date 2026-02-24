@@ -3,6 +3,9 @@ import { projects } from "@/app/lib/projects";
 import Reveal from "./components/Reveal";
 
 
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
 
 
 export default function Page() {
