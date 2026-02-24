@@ -90,20 +90,18 @@ export default function Page() {
 
               <Reveal delay={120}>
                 <aside className="heroCard">
-                  <div className="heroMeta">
-                    <div>📍 Pensacola, FL</div>
-                    <div>🎓 M.S. Data Science (Business Analytics)</div>
-                    <div>🛠️ Focus: RAG, CV, Recommenders, MLOps</div>
-                    <div>✅ 2+ years production ML experience</div>
-                  </div>
-
-                  <div className="heroBtns">
-                    <a className="btn" href="mailto:nitinjayavarapu12@gmail.com">
-                      Email
-                    </a>
-                    <a className="btn" href="/resume.pdf" target="_blank" rel="noreferrer">
-                      Resume
-                    </a>
+                  <div style={{ display: "flex", justifyContent: "center", marginBottom: 18 }}>
+                    <img
+                      src="/profile.jpg"
+                      alt="Nitin Jayavarapu"
+                      style={{
+                        width: 160,
+                        height: 160,
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                        border: "3px solid rgba(255,255,255,0.2)",
+                      }}
+                    />
                   </div>
                 </aside>
               </Reveal>
